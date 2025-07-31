@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "Thayná Freire",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -262.2, "left": -362, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 38.4,
+      "left": -4.76,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 34.8,
+      "left": -322.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -111.25,
+      "left": -220.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 159.6,
+      "left": -207.4,
+      "attrs": { "color": "orange" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -111.25,
+      "left": -105.6,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 159.6,
+      "left": -130.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -111.25,
+      "left": 0,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "esp:32", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.3", "green", [ "v0" ] ],
+    [ "r1:1", "bb1:13b.j", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:19b.j", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:25b.j", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:31b.j", "", [ "$bb" ] ],
+    [ "led2:A", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "esp:25", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "r3:1", "bb1:36b.j", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:42b.j", "", [ "$bb" ] ],
+    [ "led3:A", "r3:1", "green", [ "v0" ] ],
+    [ "r3:2", "esp:5", "green", [ "v0" ] ],
+    [ "led3:C", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
